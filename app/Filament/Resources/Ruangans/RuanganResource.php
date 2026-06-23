@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Filament\Resources\Ruangans;
+
+use App\Filament\Resources\Ruangans\Pages\CreateRuangan;
+use App\Filament\Resources\Ruangans\Pages\EditRuangan;
+use App\Filament\Resources\Ruangans\Pages\ListRuangans;
+use App\Filament\Resources\Ruangans\Schemas\RuanganForm;
+use App\Filament\Resources\Ruangans\Tables\RuangansTable;
+use App\Models\Ruangan;
+use BackedEnum;
+use UnitEnum;
+use Filament\Resources\Resource;
+use Illuminate\Database\Eloquent\Builder;
+use Filament\Schemas\Schema;
+use Filament\Tables\Table;
+
+class RuanganResource extends Resource
+{ 
+    protected static ?string $model = Ruangan::class;
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-office';
+    
+    protected static string|UnitEnum|null $navigationGroup = 'Data Peminjaman Ruangan';
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $recordTitleAttribute = 'Ruangan';
+
+    protected static ?string $navigationLabel = 'Data Ruangan';
+
+    protected static ?string $pluralModelLabel = 'Data Ruangan';
+
+    protected static ?string $modelLabel = 'Ruangan';
+
+    public static function form(Schema $schema): Schema
+    {
+        return RuanganForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return RuangansTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->latest();
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListRuangans::route('/'),
+            'create' => CreateRuangan::route('/create'),
+            'edit' => EditRuangan::route('/{record}/edit'),
+        ];
+    }
+}

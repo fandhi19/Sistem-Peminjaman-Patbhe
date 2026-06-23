@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Peminjaman Barang - SIPERU PATBHE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+    <link rel="shortcut icon" href="{{ asset('images/Logo Patbhe.png') }}" type="image/x-icon">
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    {{-- Navbar --}}
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <img src="{{ asset('images/Logo Patbhe.png') }}" alt="Logo" class="w-8 h-8 object-contain">
+                <div>
+                    <span class="font-bold text-lg text-gray-900 block leading-none">SIPERU PATBHE</span>
+                    <span class="text-xs text-gray-500">SMAN 4 Yogyakarta</span>
+                </div>
+            </a>
+            <a href="/" class="text-green-700 hover:underline"><i class="fa-solid fa-arrow-left mr-1"></i> Kembali ke Beranda</a>
+        </div>
+    </nav>
+
+    {{-- Konten Form --}}
+    <main class="flex-grow py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-2 text-center">Form Peminjaman Barang</h1>
+            <p class="text-center text-gray-500 mb-8">Lengkapi data di bawah untuk mengajukan peminjaman barang.</p>
+
+            {{-- Notifikasi Sukses --}}
+            @if(session('success'))
+                <div class="bg-green-50 border border-green-200 text-green-800 rounded-xl p-6 mb-8">
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-3xl"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Pengajuan Berhasil!</h3>
+                            <p class="mt-1">Kode peminjaman Anda: <span class="font-mono bg-green-200 px-2 py-1 rounded text-green-900 font-bold text-lg">{{ session('kode_peminjaman') }}</span></p>
+                            <p class="text-sm mt-2">Silakan simpan kode ini untuk mengecek status peminjaman Anda.</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <a href="{{ route('tracking.barang.result', ['kode' => session('kode_peminjaman')]) }}" 
+                                   class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+                                    <i class="fa-solid fa-search mr-1"></i> Lihat Status
+                                </a>
+                                <a href="{{ route('unduh.surat.barang', ['kode' => session('kode_peminjaman')]) }}" 
+                                   class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+                                    <i class="fa-solid fa-download mr-1"></i> Unduh Surat Permohonan
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Card Form --}}
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sm:p-8">
+                <form action="{{ route('form.barang.store') }}" method="POST" class="space-y-6">
+                    @csrf
+
+                    {{-- Nama --}}
+                    <div>
+                        <label for="nama" class="block text-sm font-medium text-gray-700">Nama <span class="text-red-500">*</span></label>
+                        <input type="text" name="nama" id="nama" value="{{ old('nama') }}" required
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('nama') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- NIP/NISN --}}
+                    <div>
+                        <label for="nip_nisn" class="block text-sm font-medium text-gray-700">NIP / NISN <span class="text-gray-400">(opsional)</span></label>
+                        <input type="text" name="nip_nisn" id="nip_nisn" value="{{ old('nip_nisn') }}"
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('nip_nisn') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Jabatan / Kelas --}}
+                    <div>
+                        <label for="jabatan_kelas" class="block text-sm font-medium text-gray-700">Jabatan / Kelas <span class="text-gray-400">(opsional)</span></label>
+                        <input type="text" name="jabatan_kelas" id="jabatan_kelas" value="{{ old('jabatan_kelas') }}"
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('jabatan_kelas') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Unit Kerja / Organisasi --}}
+                    <div>
+                        <label for="unit_kerja_organisasi" class="block text-sm font-medium text-gray-700">Unit Kerja / Organisasi <span class="text-gray-400">(opsional)</span></label>
+                        <input type="text" name="unit_kerja_organisasi" id="unit_kerja_organisasi" value="{{ old('unit_kerja_organisasi') }}"
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('unit_kerja_organisasi') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- No HP --}}
+                    <div>
+                        <label for="no_hp" class="block text-sm font-medium text-gray-700">No HP <span class="text-gray-400">(opsional)</span></label>
+                        <input type="text" name="no_hp" id="no_hp" value="{{ old('no_hp') }}"
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('no_hp') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Kegiatan --}}
+                    <div>
+                        <label for="kegiatan" class="block text-sm font-medium text-gray-700">Kegiatan <span class="text-red-500">*</span></label>
+                        <input type="text" name="kegiatan" id="kegiatan" value="{{ old('kegiatan') }}" required
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('kegiatan') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Tujuan --}}
+                    <div>
+                        <label for="tujuan" class="block text-sm font-medium text-gray-700">Tujuan <span class="text-gray-400">(opsional)</span></label>
+                        <textarea name="tujuan" id="tujuan" rows="3"
+                                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">{{ old('tujuan') }}</textarea>
+                        @error('tujuan') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Barang --}}
+                    <div>
+                        <label for="barang_id" class="block text-sm font-medium text-gray-700">Pilih Barang <span class="text-red-500">*</span></label>
+                        <select name="barang_id" id="barang_id" required
+                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                            <option value="">-- Pilih Barang --</option>
+                            @foreach($barangs as $barang)
+                                <option value="{{ $barang->id }}" @selected(old('barang_id') == $barang->id)>
+                                    {{ $barang->name }} ({{ $barang->code }}) - Stok: {{ $barang->jumlah }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('barang_id') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Tanggal --}}
+                    <div>
+                        <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal Pemakaian <span class="text-red-500">*</span></label>
+                        <input type="date" name="tanggal" id="tanggal" required
+                               min="{{ date('Y-m-d') }}" value="{{ old('tanggal') }}"
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                        @error('tanggal') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    {{-- Jam Mulai & Selesai --}}
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="jam_mulai" class="block text-sm font-medium text-gray-700">Jam Mulai <span class="text-red-500">*</span></label>
+                            <input type="time" name="jam_mulai" id="jam_mulai" required value="{{ old('jam_mulai') }}"
+                                   class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                            @error('jam_mulai') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                        </div>
+                        <div>
+                            <label for="jam_selesai" class="block text-sm font-medium text-gray-700">Jam Selesai <span class="text-red-500">*</span></label>
+                            <input type="time" name="jam_selesai" id="jam_selesai" required value="{{ old('jam_selesai') }}"
+                                   class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm p-3 border">
+                            @error('jam_selesai') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                        </div>
+                    </div>
+
+                    {{-- Tombol Submit --}}
+                    <div class="pt-2">
+                        <button type="submit"
+                                class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition hover:-translate-y-0.5 text-lg">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Ajukan Peminjaman Barang
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {{-- Footer --}}
+    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
+       © 2026 Tim IT SMAN 4 Yogyakarta. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
