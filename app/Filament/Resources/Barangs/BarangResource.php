@@ -10,6 +10,7 @@ use App\Filament\Resources\Barangs\Tables\BarangsTable;
 use App\Models\Barang;
 use BackedEnum;
 use UnitEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
@@ -45,6 +46,12 @@ class BarangResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->latest();
     }
 
     public static function getPages(): array

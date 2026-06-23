@@ -12,6 +12,7 @@ use BackedEnum;
 use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
@@ -47,6 +48,13 @@ class PeminjamanBarangResource extends Resource
             //
         ];
     }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->latest();
+    }
+
 
     public static function getPages(): array
     {
