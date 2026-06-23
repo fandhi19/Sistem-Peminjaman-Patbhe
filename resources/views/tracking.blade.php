@@ -134,15 +134,15 @@
                     {{-- Notifikasi Status --}}
                     @if($peminjaman->status == 'Disetujui')
                         <div class="mt-6 bg-green-50 border border-green-200 text-green-800 rounded-lg p-4">
-                            <i class="fa-solid fa-circle-check mr-2"></i> Peminjaman Anda telah <strong>disetujui</strong>. Silakan gunakan ruangan sesuai jadwal.
+                            <i class="fa-solid fa-circle-check mr-2"></i> Peminjaman Anda telah <strong>Disetujui</strong>. Silakan gunakan ruangan sesuai jadwal.
                         </div>
                     @elseif($peminjaman->status == 'Ditolak')
                         <div class="mt-6 bg-red-50 border border-red-200 text-red-800 rounded-lg p-4">
-                            <i class="fa-solid fa-circle-xmark mr-2"></i> Maaf, pengajuan Anda <strong>ditolak</strong>. Hubungi admin untuk informasi lebih lanjut.
+                            <i class="fa-solid fa-circle-xmark mr-2"></i> Maaf, pengajuan Anda <strong>Ditolak</strong>. Hubungi admin untuk informasi lebih lanjut.
                         </div>
                     @elseif($peminjaman->status == 'Selesai')
                         <div class="mt-6 bg-gray-50 border border-gray-200 text-gray-800 rounded-lg p-4">
-                            <i class="fa-solid fa-flag-checkered mr-2"></i> Peminjaman ini telah <strong>selesai</strong>.
+                            <i class="fa-solid fa-flag-checkered mr-2"></i> Peminjaman ini telah <strong>Selesai</strong>.
                         </div>
                     @else
                         <div class="mt-6 bg-yellow-50 border border-yellow-200 text-yellow-800 rounded-lg p-4">
