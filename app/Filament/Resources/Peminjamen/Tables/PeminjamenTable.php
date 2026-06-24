@@ -11,6 +11,7 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\Select;           // ← tambahkan
 use Filament\Notifications\Notification;        // ← tambahkan
 use App\Models\Peminjaman;                      // ← pastikan import model
+use Filament\Actions\ViewAction;
 
 class PeminjamenTable
 {
@@ -111,6 +112,8 @@ class PeminjamenTable
                     }),
 
                 EditAction::make(),
+                ViewAction::make()
+                ->label("Lihat"),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

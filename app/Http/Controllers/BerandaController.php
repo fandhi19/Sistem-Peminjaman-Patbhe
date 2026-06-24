@@ -108,7 +108,7 @@ class BerandaController extends Controller
             "Surat permohonan terlampir dalam PDF.\n\n" .
             "SISTEM PEMINJAMAN PATBHE - SMAN 4 Yogyakarta",
             function ($message) use ($peminjaman, $pdf) {
-                $message->to('cekerckc@gmail.com', 'Admin SARPRAS PATBHE')
+                $message->to('4bheyogyakarta@gmail.com', 'Admin SARPRAS PATBHE')
                         ->subject('🔔 Pengajuan Peminjaman Baru - ' . now()->format('d/m/Y H:i'))
                         ->attachData($pdf->output(), 'Surat-Permohonan-' . $peminjaman->code . '.pdf', [
                             'mime' => 'application/pdf',
@@ -242,7 +242,7 @@ class BerandaController extends Controller
             "Surat permohonan terlampir dalam PDF.\n\n" .
             "SIPERU PATBHE - SMAN 4 Yogyakarta",
             function ($message) use ($peminjaman, $pdf) {
-                $message->to('cekerckc@gmail.com', 'Admin SARPRAS PATBHE')
+                $message->to('4bheyogyakarta@gmail.com', 'Admin SARPRAS PATBHE')
                         ->subject('🔔 Pengajuan Peminjaman Barang Baru - ' . now()->format('d/m/Y H:i'))
                         ->attachData($pdf->output(), 'Surat-Permohonan-Barang-' . $peminjaman->code . '.pdf', [
                             'mime' => 'application/pdf',

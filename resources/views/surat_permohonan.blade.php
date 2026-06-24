@@ -195,7 +195,7 @@ kegiatan sebagai berikut :
         <td>:</td>
         <td>
             {{ $peminjaman->ruangan->name }}
-            ({{ $peminjaman->ruangan->code }})
+            ({{ $peminjaman->ruangan->code }}) 
         </td>
     </tr>
 

@@ -212,7 +212,6 @@
             <td>:</td>
             <td>
                 {{ $peminjaman->barang->name }}
-                ({{ $peminjaman->barang->code }})
             </td>
         </tr>
 
