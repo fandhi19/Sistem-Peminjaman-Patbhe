@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIPERU PATBHE - Peminjaman Ruangan & Barang SMAN 4 Yogyakarta</title>
+    <title>SPACE-IN PATBHE - Peminjaman Ruangan & Barang SMAN 4 Yogyakarta</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('images/Logo Patbhe.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/logo-web.png') }}" type="image/x-icon">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
@@ -21,9 +21,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center space-x-3">
-                    <img src="{{ asset('images/Logo Patbhe.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-10 h-10">
+                    <img src="{{ asset('images/logo-web.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-12 h-12">
                     <div>
-                        <span class="font-bold text-lg text-[#142b52] block leading-none">PINJAM PATBHE</span>
+                        <span class="font-bold text-lg text-[#142b52] block leading-none">SPACE-IN PATBHE</span>
                         <span class="text-xs text-[#666666]">SMAN 4 Yogyakarta</span>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     Layanan Resmi Sarpras Patbhe
                 </span>
                 <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
-                    Pinjam Ruangan & Barang Kini Lebih <span class="text-[#facc15]">Cepat & Transparan</span>
+                    Pinjam Ruangan & Barang Jadi Lebih <span class="text-[#facc15]">Mudah Cepat & Transparan</span>
                 </h1>
                 <p class="text-lg text-[#d1d5db] max-w-xl mx-auto md:mx-0">
                     Ajukan peminjaman ruangan maupun barang inventaris sekolah secara digital. Mudah, terjadwal, dan terpantau real-time.
@@ -82,7 +82,7 @@
     <section id="keunggulan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-[#142b52] sm:text-4xl">Mengapa SIPERU Patbhe?</h2>
+                <h2 class="text-3xl font-bold text-[#142b52] sm:text-4xl">Mengapa SPACE-IN Patbhe?</h2>
                 <div class="w-20 h-1 bg-[#eab308] mx-auto mt-4 rounded"></div>
                 <p class="mt-4 text-[#555555] text-lg">Manajemen peminjaman fasilitas dan inventaris sekolah yang serba digital, cepat, dan transparan.</p>
             </div>
@@ -338,8 +338,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
             <div class="space-y-4">
                 <div class="flex items-center space-x-3 text-white">
-                    <img src="{{ asset('images/Logo Patbhe.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-20 h-20">
-                    <span class="font-bold text-lg">SIPERU PATBHE</span>
+                    <img src="{{ asset('images/logo-web.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-20 h-20">
+                    <span class="font-bold text-lg">SPACE-IN PATBHE</span>
                 </div>
                 <p class="text-sm leading-relaxed text-[#d1d5db]">Sistem Informasi Peminjaman Ruangan & Barang terintegrasi demi mewujudkan transparansi dan kenyamanan fasilitas sekolah.</p>
             </div>

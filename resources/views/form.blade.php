@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Peminjaman - SIPERU PATBHE</title>
+    <title>Form Peminjaman Ruangan - SPACE-IN PATBHE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('images/Logo Patbhe.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/logo-web.png') }}" type="image/x-icon">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
@@ -21,10 +21,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
             <a href="/" class="flex items-center space-x-3">
                 <div class="rounded-full flex items-center justify-center font-bold text-xl shadow-md">
-                    <img src="{{ asset('images/Logo Patbhe.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-10 h-10">
+                    <img src="{{ asset('images/logo-web.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-12 h-12">
                 </div>
                 <div>
-                    <span class="font-bold text-lg text-white block leading-none">SIPERU PATBHE</span>
+                    <span class="font-bold text-lg text-white block leading-none">SPACE-IN PATBHE</span>
                     <span class="text-xs text-[#d1d5db]">SMAN 4 Yogyakarta</span>
                 </div>
             </a>

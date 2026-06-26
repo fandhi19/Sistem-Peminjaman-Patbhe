@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Status Peminjaman Ruangan - SIPERU PATBHE</title>
+    <title>Cek Status Peminjaman Ruangan - SPACE-IN PATBHE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('images/Logo Patbhe.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/logo-web.png') }}" type="image/x-icon">
     <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
 <body class="bg-[#f8fafc] text-gray-800 min-h-screen flex flex-col">
@@ -16,9 +16,9 @@
     <nav class="bg-[#0f213d] shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
             <a href="/" class="flex items-center space-x-3">
-                <img src="{{ asset('images/Logo Patbhe.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-10 h-10">
+                <img src="{{ asset('images/logo-web.png') }}" alt="Logo SMAN 4 Yogyakarta" class="w-12 h-12">
                 <div>
-                    <span class="font-bold text-lg text-white block leading-none">SIPERU PATBHE</span>
+                    <span class="font-bold text-lg text-white block leading-none">SPACE-IN PATBHE</span>
                     <span class="text-xs text-[#d1d5db]">SMAN 4 Yogyakarta</span>
                 </div>
             </a>
@@ -101,7 +101,7 @@
                         </div>
                         <div>
                             <dt class="text-[#555555] font-medium">Ruangan</dt>
-                            <dd class="text-[#333333]">{{ $peminjaman->ruangan->name ?? '-' }} ({{ $peminjaman->ruangan->code ?? '' }})</dd>
+                            <dd class="text-[#333333]">{{ $peminjaman->ruangan->name ?? '-' }}</dd>
                         </div>
                         <div>
                             <dt class="text-[#555555] font-medium">Tanggal</dt>
