@@ -10,6 +10,8 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 class PeminjamanStatsWidget extends BaseWidget
 {
 
+    protected static ?int $sort =  2;
+
     protected function getHeading(): ?string
     {
         return '🏢 Statistik Peminjaman Ruangan';

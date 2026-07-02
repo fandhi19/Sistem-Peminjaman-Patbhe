@@ -106,7 +106,7 @@ class BerandaController extends Controller
             "🔹 Kegiatan        : {$peminjaman->nama_kegiatan}\n\n" .
             "Silakan cek panel admin untuk menindaklanjuti.\n" .
             "Surat permohonan terlampir dalam PDF.\n\n" .
-            "SISTEM PEMINJAMAN PATBHE - SMAN 4 Yogyakarta",
+            "SPACE-IN PATBHE - SMAN 4 Yogyakarta",
             function ($message) use ($peminjaman, $pdf) {
                 $message->to('4bheyogyakarta@gmail.com', 'Admin SARPRAS PATBHE')
                         ->subject('🔔 Pengajuan Peminjaman Baru - ' . now()->format('d/m/Y H:i'))
@@ -240,7 +240,7 @@ class BerandaController extends Controller
             "🔹 Kegiatan        : {$peminjaman->kegiatan}\n\n" .
             "Silakan cek panel admin untuk menindaklanjuti.\n" .
             "Surat permohonan terlampir dalam PDF.\n\n" .
-            "SIPERU PATBHE - SMAN 4 Yogyakarta",
+            "SPACE-IN PATBHE - SMAN 4 Yogyakarta",
             function ($message) use ($peminjaman, $pdf) {
                 $message->to('4bheyogyakarta@gmail.com', 'Admin SARPRAS PATBHE')
                         ->subject('🔔 Pengajuan Peminjaman Barang Baru - ' . now()->format('d/m/Y H:i'))

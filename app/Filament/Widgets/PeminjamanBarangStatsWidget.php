@@ -7,12 +7,15 @@ use App\Models\PeminjamanBarang;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
+
 class PeminjamanBarangStatsWidget extends BaseWidget
 {
+    protected static ?int $sort = 1;
     protected function getHeading(): ?string
     {
         return '📦 Statistik Peminjaman Barang';
     }
+    
 
     protected function getStats(): array
     {
